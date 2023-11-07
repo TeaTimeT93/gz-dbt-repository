@@ -14,7 +14,7 @@ sources:
         tests:
           - unique:
                column_name: "(orders_id || '_' || pdt_id)"
-        
+          - not_null:       
       - name: ship
         description: shippings_cost of the order_id
         identifier: raw_gz_ship
@@ -34,4 +34,5 @@ sources:
               - not_null
           - name: purchase_price
             description: price paid for product
-                  
+ 
+                 
