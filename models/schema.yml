@@ -3,14 +3,14 @@ version: 2
 sources:
   - name: raw
     schema: gz_raw_data
+    description: greenwiz_raw_data
     tables:
-        - name: sales
-          identifier: raw_gz_sales
-        - name: ship
-          identifier: raw_gz_ship
-        - name: product
-          identifier: raw_gz_product    
-
-
-    
-    
+      - name: sales
+        description: greenwiz_raw_sales_data order_id and the included products_id
+        identifier: raw_gz_sales
+      - name: ship
+        description: shippings_cost of the order_id
+        identifier: raw_gz_ship
+      - name: product
+        description: purchase_cost of the product_id
+        identifier: raw_gz_product
