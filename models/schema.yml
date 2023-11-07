@@ -8,9 +8,30 @@ sources:
       - name: sales
         description: greenwiz_raw_sales_data order_id and the included products_id
         identifier: raw_gz_sales
+        columns:
+          - name: date_date
+            description: date_of_order
+        tests:
+          - unique:
+               column_name: "(orders_id || '_' || pdt_id)"
+        
       - name: ship
         description: shippings_cost of the order_id
         identifier: raw_gz_ship
+        columns:
+          - name: orders_id
+            tests:
+              - unique
+              - not_null
       - name: product
         description: purchase_cost of the product_id
         identifier: raw_gz_product
+        columns:
+          - name: products_id
+            description: Primary Key
+            tests:
+              - unique
+              - not_null
+          - name: purchase_price
+            description: price paid for product
+                  
