@@ -3,7 +3,8 @@ orders_id,
 ROUND(SUM(revenue),2) AS revenue,
 ROUND(SUM(quantity),2) AS quantity,
 ROUND(SUM(CAST(purchase_price AS FLOAT64)),2) AS purchase_price,
-ROUND(SUM(revenue-quantity*CAST(purchase_price AS FLOAT64)),2) AS margin
+ROUND(SUM(revenue-quantity*CAST(purchase_price AS FLOAT64)),2) AS margin,
+SUM({{cents_to_dollars(revenue)}}) AS dtd
 FROM {{ref("stg_raw__sales")}} 
 LEFT JOIN {{ref("stg_raw__product")}}
 USING (products_id) 
