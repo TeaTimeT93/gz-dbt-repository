@@ -4,7 +4,7 @@ ROUND(SUM(revenue),2) AS revenue,
 ROUND(SUM(quantity),2) AS quantity,
 ROUND(SUM(CAST(purchase_price AS FLOAT64)),2) AS purchase_price,
 ROUND(SUM(revenue-quantity*CAST(purchase_price AS FLOAT64)),2) AS margin,
-SUM({{cents_to_dollars(revenue)}}) AS dtd
+ROUND(SUM({{margin_percent("revenue-quantity*CAST(purchase_price AS FLOAT64)","revenue")}}),2) AS margin_percent
 FROM {{ref("stg_raw__sales")}} 
 LEFT JOIN {{ref("stg_raw__product")}}
 USING (products_id) 
