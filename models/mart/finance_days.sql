@@ -1,3 +1,5 @@
+{{ config(materialized = 'table') }}
+
 WITH tab1 AS (
 SELECT
   o.orders_id

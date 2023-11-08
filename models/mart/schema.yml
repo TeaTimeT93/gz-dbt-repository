@@ -1,0 +1,4 @@
+models:
+    mart:
+      materialized: table
+
