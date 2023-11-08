@@ -34,6 +34,18 @@ sources:
               - not_null
           - name: purchase_price
             description: price paid for product
+      - name: facebook
+        description: ads_cost of facebook ads
+        identifier: raw_gz_facebook
+      - name: adwords
+        description: ads_cost of adwords ads
+        identifier: raw_gz_adwords
+      - name: bing
+        description: ads_cost of bing ads
+        identifier: raw_gz_bing
+      - name: criteo
+        description: ads_cost of criteo ads
+        identifier: raw_gz_criteo
 
 models:
   - name: int_sales_margin
