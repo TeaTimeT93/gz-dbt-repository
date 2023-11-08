@@ -13,8 +13,8 @@ sources:
             description: date_of_order
         tests:
           - unique:
-               column_name: "(orders_id || '_' || pdt_id)"
-                
+              column_name: "(orders_id || '_' || pdt_id)"
+
       - name: ship
         description: shippings_cost of the order_id
         identifier: raw_gz_ship
@@ -34,7 +34,54 @@ sources:
               - not_null
           - name: purchase_price
             description: price paid for product
-
+      - name: facebook
+        description: ads_cost of facebook ads
+        identifier: raw_gz_facebook
+        columns:
+          - name: ads_cost
+            description: Cost of ads
+            tests:
+              - not_null
+          - name: date_date
+            tests:
+              - not_null            
+            description: date of ad
+          - name: campaign_key
+            tests:
+              - not_null          
+            description: Primary_key
+          - name: campaign_name
+      
+      - name: adwords
+        description: ads_cost of adwords ads
+        identifier: raw_gz_adwords
+        tests:
+          - not_null:
+              column_name:
+                - ads_cost
+                - date_date
+                - campaign_key
+                - campaign_name        
+      - name: bing
+        description: ads_cost of bing ads
+        identifier: raw_gz_bing
+        tests:
+          - not_null:
+              column_name:
+                - ads_cost
+                - date_date
+                - campaign_key
+                - campaign_name        
+      - name: criteo
+        description: ads_cost of criteo ads
+        identifier: raw_gz_criteo
+        tests:
+          - not_null:
+              column_name:
+                - ads_cost
+                - date_date
+                - campaign_key
+                - campaign_name
 models:
   - name: int_sales_margin
     tests:
@@ -74,7 +121,7 @@ models:
   - name: int_orders_operational
     description: operational margin calculation per order
     columns:
-      - name: operational_margin 
+      - name: operational_margin
         description: Operational margin = margin + shipping fee - log_cost - ship_cost
   - name: finance_days
     description: finance calculation per days
@@ -93,4 +140,3 @@ models:
         description: sum of revenue per order
       - name: quantity
         description: sum of quantity per order
-
