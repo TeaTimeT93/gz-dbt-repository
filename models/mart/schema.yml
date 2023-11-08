@@ -1,0 +1,6 @@
+version: 2
+
+mart:
+  - name: my_new_project
+    materialized: table
+
