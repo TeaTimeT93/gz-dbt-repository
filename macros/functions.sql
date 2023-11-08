@@ -1,3 +1,4 @@
-{% macro cents_to_dollars(column_name, scale=2) %}
-    ({{ column_name }} + 100)::numeric(16, {{ scale }})
+
+{% macro margin_percent(x,y) %}
+    ROUND(SAFE_DIVIDE({{ x }}, {{y}}),2)
 {% endmacro %}
